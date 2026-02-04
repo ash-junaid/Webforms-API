@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fontara Member Portal</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    
+    <link rel="icon" href="Fontara.jpg">
+
+    <script src="config.js"></script>
+
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="app-name">Member Portal</div>
+            <div class="portal-title">Renew Membership</div>
+        </div>
+        <div class="menu">
+            <div class="menu-label">Select Member</div>
+
+            <div class="user-card" onclick="loadUser('percy', this)">
+                <div class="avatar">PJ</div>
+                <div class="user-info">
+                    <div class="user-name">Percy Jackson</div>
+                    <div class="user-status">Action Required</div>
+                </div>
+            </div>
+
+            <div class="user-card" onclick="loadUser('ron', this)">
+                <div class="avatar">RW</div>
+                <div class="user-info">
+                    <div class="user-name">Ron Weasley</div>
+                    <div class="user-status">Action Required</div>
+                </div>
+            </div>
+
+            <div class="user-card" onclick="loadUser('jo', this)">
+                <div class="avatar">JJ</div>
+                <div class="user-info">
+                    <div class="user-name">Jo Jamerson</div>
+                    <div class="user-status">Active</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <img src="https://i.ibb.co/tTjgRkKN/Fontera-color-resized-smaller-1.png" alt="Fontara Logo" class="header-logo">
+        </div>
+
+        <div class="frame-container">
+            <div id="welcome" class="welcome-screen">
+                <div class="welcome-box">
+                    <h2>Welcome to Fontara</h2>
+                    <p>Select a member from the sidebar to begin.</p>
+                </div>
+            </div>
+            
+            <iframe id="formFrame" src=""></iframe>
+        </div>
+    </div>
+
+    <script>
+        // ==========================================
+        //  CONFIGURATION
+        // ==========================================
+        
+        // This is your Web Form's permanent address
+        const baseURL = "https://apps-d.docusign.com/webforms/us/ab4743a19e2f50ecb08d71eae9988706";
+
+        function loadUser(userKey, element) {
+            // 1. UI Updates (Hide welcome screen, highlight button)
+            document.getElementById('welcome').style.display = 'none';
+            document.querySelectorAll('.user-card').forEach(card => card.classList.remove('active'));
+            element.classList.add('active');
+
+            // 2. Get the specific token from config.js
+            // We use 'window.tokens' to confirm the config file loaded
+            const token = window.tokens ? tokens[userKey] : null;
+
+            if(token) {
+                // 3. Construct the full URL automatically
+                const fullUrl = baseURL + "#instanceToken=" + token;
+                document.getElementById('formFrame').src = fullUrl;
+            } else {
+                console.error("Config Error: Tokens not found. Check config.js");
+                alert("Error: Token not found for " + userKey + ". Check config.js");
+            }
+        }
+    </script>
+</body>
+</html>
