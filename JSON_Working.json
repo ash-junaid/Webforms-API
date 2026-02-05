@@ -14,7 +14,7 @@ Percy Jackson:
     "Member_Gender": "Male",
     "Member_Date": "1997-01-11"
   },
-  "returnUrl": "https://www.google.com",
+  "returnUrl": "https://placehold.co/1000x800/FFFFFF/000000?text=Submission+Successful!+Return+to+Dashboard",
   "expirationOffset": 720
     }
 }
@@ -31,7 +31,7 @@ Ron Weasley:
     "Member_Gender": "Male",
     "Member_Date": "2000-01-12"
   },
-  "returnUrl": "https://www.google.com",
+  "returnUrl": "https://placehold.co/1000x800/FFFFFF/000000?text=Submission+Successful!+Return+to+Dashboard",
   "expirationOffset": 720
     }
 }
@@ -48,7 +48,7 @@ Jo Jamerson
     "Member_Gender": "Female",
     "Member_Date": "1994-11-11"
   },
-  "returnUrl": "https://www.google.com",
+  "returnUrl": "https://placehold.co/1000x800/FFFFFF/000000?text=Submission+Successful!+Return+to+Dashboard",
   "expirationOffset": 720
     }
 }
