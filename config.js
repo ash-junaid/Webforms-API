@@ -1,11 +1,34 @@
-// config.js
 
-// CHANGE 'const tokens' TO 'window.tokens'
+
+// Instance tokens 
 window.tokens = {
-    // Paste ONLY the long code after "#instanceToken=" here
-    percy: "b3d7e1ee0997f2e66d0a13660e25442d6eecb6c3c34f0ff3b85441ad66f2aead40ba1ec9649ad1af07f6366c11f36053e3277ae8751093ddf5a202387c7524fce84b2f9471accf7508a7d12fb53059ce6917ab2ea7a41182edb8c4c67e14e7fdfa51d8a998212685bcad3c48f04a5b9a389fbbdf814a9ce3a8e9e4e5f27e795059290303b5e96e127deee0498503aca9b70b35c5c0fba484697453054b386bd6de491ea4be122cedc1099c9906ae80e4457b7e7411f28cb39972a5fc205892b444a52b6989ff547f15a988f82107eab1f3332173d49115a7c0408b60c3035e4f7f55a032230a11cacad3f5f8274b3fe545dcd12afdcef38472ebde4f2d50627b4783edd76f9c1a0e1260af936901f778",
-    
-    ron:   "f87e5f5a9153f9abe5095d7fa65ee52eb2bdce7bbe31b70c00cc545f80fa6c81118a5d24ac5ae48aed30a2c2c7fac5a4b7b893211d6105f5ebd5533a6ccba46c40d306948c3cf2784b6ebed9b30e770a761c7fe54f910de4f45a7709348431aab49a5ec016a8756385127e624aad88d64a6d36ae2ebd5b3237ffb9e26fef0037d66adf1d531b5ad77876b11610e523d1c029de728aa86d721604f9920955ddb82a7e28fbec9585be814ee9fdbbd2d8204fa331bae39b8c9d137b33f4aa63ed05dead84ef7984e8258567b17f7016bfa3474d76e163de0ed2de4a51116d4129f3cd05fae00e2d635f174e7c4e7cfde865c22d123ae65ef4af2dd1124e3e7fcc2715dc05a01e45b2baef529eff938f0a34",
-    
-    jo:    "4d899c74ea500e96b6df031356b91181f79f2f882e9c93a40f0bb2ff5da096e2b8dca99690c6fd6fcaad140270c2914f5053df07d055dfc836aa0f7f6cbb6ca7aec7504e216e39c54eb53315129cadecab57eba5b82c03ca28ad22d49340bafd6148feff4c78b8fa62a7abbc6da815b342c9e6e7ce98f7a2e4a1e623ed280e67faaefbeb5b029ccd1e64044eb76a94f2bf3a0245e155db9965369906366f3644a0fc16b4888c2c372af4cbd9e34c17a0762fdbe30bc9e0ef250a1cc40559267a70d48c8f83510d0e4b26a9b2e3998cf18b6ef84c7fcfa59ef9b14e9d6720b75dbbfa167a2d3603a3bef5702ebeab2db6c14d24628978b0fd21acacdefa5785e8f04eedece12930a115219726be4a0bd3"
+    percy: "PASTE_NEW_TOKEN_HERE",
+    ron:   "PASTE_NEW_TOKEN_HERE",
+    jo:    "PASTE_NEW_TOKEN_HERE"
 };
+
+// Web Form URL (Do not change)
+const baseURL = "https://apps-d.docusign.com/webforms/us/ab4743a19e2f50ecb08d71eae9988706";
+
+
+//JS stuff
+
+function loadUser(userKey, btnElement) {
+    
+    const welcomeText = document.getElementById('welcome-text');
+    if (welcomeText) welcomeText.style.display = 'none';
+    
+   
+    document.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+    btnElement.classList.add('active');
+
+ 
+    const token = window.tokens ? window.tokens[userKey] : null;
+
+    
+    if(token) {
+        document.getElementById('formFrame').src = baseURL + "#instanceToken=" + token;
+    } else {
+        alert("Error: Token not found for " + userKey + ". Please check config.js");
+    }
+}
