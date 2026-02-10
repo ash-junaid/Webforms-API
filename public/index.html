@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fontara Demo</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <h3>Select Member</h3>
+        <button onclick="loadUser('percy', this)">Percy Jackson</button>
+        <button onclick="loadUser('ron', this)">Ron Weasley</button>
+        <button onclick="loadUser('jo', this)">Jo Jamerson</button>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <img src="https://i.ibb.co/tTjgRkKN/Fontera-color-resized-smaller-1.png" alt="Logo">
+        </div>
+
+        <div class="frame-container">
+            <h2 id="welcome-text">Select a member to begin</h2>
+            <iframe id="formFrame" src=""></iframe>
+        </div>
+    </div>
+
+    <script>
+        async function loadUser(userKey, btn) {
+            // 1. UI Updates (Hide text, highlight button)
+            document.getElementById('welcome-text').style.display = 'none';
+            document.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            // 2. Clear the Iframe while loading
+            const frame = document.getElementById('formFrame');
+            frame.src = "about:blank";
+
+            try {
+                // 3. Ask your local server for a fresh link
+                // This connects to the server.js running on port 3000
+                const response = await fetch(`/api/link/${userKey}`);
+                
+                if (!response.ok) {
+                    throw new Error(`Server Error: ${response.status}`);
+                }
+
+                const data = await response.json();
+                
+                // 4. Load the fresh URL
+                if (data.url) {
+                    frame.src = data.url;
+                } else {
+                    alert("Error: Server did not return a URL.");
+                }
+
+            } catch (err) {
+                console.error("Connection Failed:", err);
+                alert("Could not connect to server. Make sure 'node server.js' is running in the terminal.");
+            }
+        }
+    </script>
+</body>
+</html>
