@@ -11,32 +11,33 @@ Percy Jackson:
 {
     "CreateInstanceRequestBody": {
         "clientUserId": "User_02",
-  "formValues": {
-    "Member_name": "Percy Jackson",
-    "Member_email": "percy.jackson2290@gmail.com",
-    "Member_Age": "29",
-    "Member_Gender": "Male",
-    "Member_Date": "1997-01-11"
-  },
-  "returnUrl": "https://placehold.co/1000x800/FFFFFF/000000?text=Submission+Successful!+Return+to+Dashboard",
-  "expirationOffset": 720
+        "formValues": {
+            "Member_name": "Percy Jackson",
+            "Member_email": "percy.jackson2290@gmail.com",
+            "Member_Age": "29",
+            "Member_Gender": "Male",
+            "Member_Date": "1997-01-11",
+            "Member_Phone": "123456",
+            "Member_Address": "123 Sydney St"
+        }
     }
 }
 
 
 Ron Weasley:
+
 {
     "CreateInstanceRequestBody": {
         "clientUserId": "User_03",
-  "formValues": {
-    "Member_name": "Ron Weasley",
-    "Member_email": "ron.weasley2290@gmail.com",
-    "Member_Age": "26",
-    "Member_Gender": "Male",
-    "Member_Date": "2000-01-12"
-  },
-  "returnUrl": "https://placehold.co/1000x800/FFFFFF/000000?text=Submission+Successful!+Return+to+Dashboard",
-  "expirationOffset": 720
+        "formValues": {
+            "Member_name": "Ron Weasley",
+            "Member_email": "ron.weasley2290@gmail.com",
+            "Member_Age": "30",
+            "Member_Gender": "Male",
+            "Member_Date": "1996-03-01",
+            "Member_Phone": "987654",
+            "Member_Address": "321 Changi St"
+        }
     }
 }
 
@@ -45,17 +46,16 @@ Jo Jamerson
 {
     "CreateInstanceRequestBody": {
         "clientUserId": "User_04",
-  "formValues": {
-    "Member_name": "Jo Jamerson",
-    "Member_email": "jo.customer2290@gmail.com",
-    "Member_Age": "32",
-    "Member_Gender": "Female",
-    "Member_Date": "1994-11-11"
-  },
-  "returnUrl": "https://placehold.co/1000x800/FFFFFF/000000?text=Submission+Successful!+Return+to+Dashboard",
-  "expirationOffset": 720
+        "formValues": {
+            "Member_name": "Jo Jamerson",
+            "Member_email": "jo.customer2290@gmail.com",
+            "Member_Age": "42",
+            "Member_Gender": "Female",
+            "Member_Date": "1982-11-15",
+            "Member_Phone": "567345",
+            "Member_Address": "64 Docu Rd"
+        }
     }
 }
-
 
 

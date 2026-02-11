@@ -27,7 +27,13 @@ body {
     font-weight: 600;
 }
 
-button {
+
+.sidebar button, 
+.sidebar a {
+    display: block;             
+    width: 100%;                
+    box-sizing: border-box;     
+    
     background: transparent;
     color: #ddd;
     border: 1px solid transparent;
@@ -40,19 +46,25 @@ button {
     transition: all 0.2s ease;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
+    text-decoration: none;      
 }
 
-button:hover {
+/* Hover Effect for Both */
+.sidebar button:hover, 
+.sidebar a:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
 }
 
-button.active {
+
+.sidebar button.active,
+.sidebar a:active {
     background-color: #33E99D;
     color: black;
     font-weight: 700;
     box-shadow: 0 4px 15px rgba(51, 233, 157, 0.2);
 }
+
 
 .main-content {
     flex-grow: 1;
