@@ -7,15 +7,17 @@
     
     <link rel="icon" type="image/png" href="Fontara.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles_node.css">
 </head>
 
 <body>
     <div class="sidebar">
         <h3>Select Member</h3>
-        <button onclick="loadUser('percy', this)">Percy Jackson</button>
-        <button onclick="loadUser('ron', this)">Ron Weasley</button>
-        <button onclick="loadUser('jo', this)">Jo Jamerson</button>
+        <div class="nav-links">
+            <button onclick="loadUser('percy', this)">Percy Jackson</button>
+            <button onclick="loadUser('ron', this)">Ron Weasley</button>
+            <button onclick="loadUser('jo', this)">Jo Jamerson</button>
+        </div>
     </div>
 
     <div class="main-content">
@@ -42,7 +44,6 @@
 
             try {
                 // 3. Ask your local server for a fresh link
-                // This connects to the server.js running on port 3000
                 const response = await fetch(`/api/link/${userKey}`);
                 
                 if (!response.ok) {

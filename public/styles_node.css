@@ -149,6 +149,8 @@ iframe {
         padding-bottom: 5px;      /* Room for scrollbar */
     }
 
+    /* Target both buttons and links for mobile resizing */
+    .sidebar button,
     .sidebar a.nav-button {
         width: auto;              /* Button fits text */
         white-space: nowrap;      /* Prevent text wrapping */
