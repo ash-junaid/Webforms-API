@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 
 // IMPORT CONFIG
-const config = require('./config_server');
+const config = require('./config_server'); //change
 
 // HOST FRONTEND
 app.use(express.static(path.join(__dirname, 'public')));
